@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Cloud Generator</title>
+    <style>
+        body {
+            background-color: #f0f0f0; /* Light gray background color */
+        }
+    </style>
+</head>
+<body>
+    <h1>RV COLLEGE OF ENGINEERING</h1>
+    <h2>Word Cloud Generator</h2>
+    <form method="POST" action="/" enctype="multipart/form-data">
+        <textarea name="text" rows="5" cols="80" style="width: 80%;" placeholder="Enter text here..."></textarea>
+        <br>
+        <input type="submit" value="Generate Word Cloud">
+    </form>
+
+    {% if wordcloud_generated %}
+    <h2>Word Cloud Generated:</h2>
+    <img src="{{ url_for('static', filename='wordcloud.png') }}" alt="Word Cloud">
+    <br>
+    <a href="{{ url_for('download') }}" download>Download Word Cloud</a>
+    {% endif %}
+
+    
+</body>
+</html>
